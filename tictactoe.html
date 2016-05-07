@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>Tic Tac Toe </title>
+<style>
+#playarea
+{
+margin-left:auto;
+margin-right:auto;
+border: 5px solid red;
+width:450px;
+height:435px;
+}
+#player
+{
+margin-left:auto;
+margin-right:auto;
+margin-top:25px;
+border:5px solid green;
+height:50px;
+width:450px;
+}
+#header
+{
+margin-left:auto;
+margin-right:auto;
+margin-bottom:20px;
+height:70px;
+width:250px;
+border:5px solid blue;
+text-align:center;
+font-size:150%;
+padding-bottom:20px;
+}
+#player
+{
+font-size:175%;
+color:blue;
+text-align:center;
+}
+img[name="jsbutton1"]
+{
+border:2px solid black;
+}
+#jsbutton2
+{
+border:2px solid black;
+}
+#jsbutton3
+{
+border:2px solid black;
+}
+#jsbutton4
+{
+border:2px solid black;
+}
+#jsbutton5
+{
+border:2px solid black;
+}
+#jsbutton6
+{
+border:2px solid black;
+}
+#jsbutton7
+{
+border:2px solid black;
+}
+#jsbutton8
+{
+border:2px solid black;
+}
+#jsbutton9
+{
+border:2px solid black;
+}
+#b1
+{
+margin-left:auto;
+margin-right:auto;
+height:40px;
+width:60px;
+background-color:yellow;
+color:green;
+border:2px solid black;
+}
+</style>
+<head>
+<body>
+<div id="header">
+<h3>Tic Tac Toe</h3>
+</div>
+<div id="playarea">	
+<a href="#" onMouseDown="return check('jsbutton1',0)">
+<img name="jsbutton1" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton2',1)">
+<img id="jsbutton2" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton3',2)">
+<img id="jsbutton3" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton4',3)">
+<img id="jsbutton4" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton5',4)">
+<img id="jsbutton5" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton6',5)">
+<img id="jsbutton6" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton7',6)">
+<img id="jsbutton7" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton8',7)">
+<img id="jsbutton8" src="blank.png" width="142" height="139" alt="javascript button">
+</a>
+<a href="#" onMouseDown="return check('jsbutton9',8)">
+<img id="jsbutton9" src="blank.png" width="142	" height="139" alt="javascript button">
+</a>
+<script>
+var a=0;
+var cross = new Array(9);
+var check1=new Array(9);
+
+for(i=0;i<check1.length;i++)
+{
+check1[i]=false;
+}
+
+for(i=0;i<cross.length;i++)
+{
+cross[i]=false;
+}
+var circle=new Array(9);
+for(i=0;i<circle.length;i++)
+{
+circle[i]=false;
+}
+
+function check(clicked_id,x)
+{
+if(a%2==0 && !check1[x])
+{
+document.getElementById("player").innerHTML="Player 2 Turn";
+document.images[clicked_id].src="cross.png";
+cross[x]=true;
+check1[x]=true;
+a++;
+}
+else
+if(a%2!=0 && !check1[x])
+{
+document.getElementById("player").innerHTML="Player 1 Turn";
+document.images[clicked_id].src="circle.png";
+circle[x]=true;
+check1[x]=true;
+a++;
+}
+if(a>=5)
+{
+if((circle[0] && circle[1] && circle[2])||(circle[3] && circle[4] && circle[5])||(circle[6] && circle[7] && circle[8])||
+(circle[0] && circle[3] && circle[6])||(circle[1] && circle[4] && circle[7])||(circle[2] && circle[5] && circle[8])||
+(circle[0] && circle[4] && circle[8])||(circle[2] && circle[4] && circle[6]))
+{
+document.getElementById("player").innerHTML="Player 2 WIN!!!!";
+for(i=0;i<9;i++)
+{
+check1[i]=true;
+}
+}
+else
+if((cross[0] && cross[1] && cross[2])||(cross[3] && cross[4] && cross[5])||(cross[6] && cross[7] && cross[8])||
+(cross[0] && cross[3] && cross[6])||(cross[1] && cross[4] && cross[7])||(cross[2] && cross[5] && cross[8])||
+(cross[0] && cross[4] && cross[8])||(cross[2] && cross[4] && cross[6]))
+{
+document.getElementById("player").innerHTML="Player 1 WIN!!!!";
+for(i=0;i<9;i++)
+{
+check1[i]=true;
+}
+}
+}
+if(a==9)
+{
+document.getElementById("player").innerHTML="Nobody won!!!!";
+}
+}
+
+</script>
+</div>
+<div>
+<p id="player">
+Player 1 Turn
+</p>
+<a href="tictactoe.html"><center><button type="button" id="b1" onclick="docume()">RESET</button></center></a>
+</div>
+</body>
+</html>
+
+
